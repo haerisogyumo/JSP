@@ -31,6 +31,7 @@
 		
 		$('#btnUidCheck').click(function(){
 			
+			
 			let uid = $('input[name=uid]').val();
 			//alert(uid);
 			
