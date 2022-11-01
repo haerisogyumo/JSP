@@ -1,3 +1,4 @@
+
 <%@page import="kr.co.jboard1.dao.ArticleDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -63,7 +64,7 @@
         <% for(ArticleBean article : articles){ %>
         <tr>
             <td><%= pageStartNum-- %></td>
-            <td><a href="/JBoard1/view.jsp"><%= article.getTitle() %>[<%= article.getComment() %>]</a></td>
+            <td><a href="/JBoard1/view.jsp?no=<%= article.getNo() %>&pg=<%= currentPage %>"><%= article.getTitle() %>[<%= article.getComment() %>]</a></td>
             <td><%= article.getNick() %></td>
             <td><%= article.getRdate().substring(2, 10) %></td>
             <td><%= article.getHit() %></td>
@@ -87,3 +88,14 @@
     <a href="/JBoard1/write.jsp" class="btnWrite">글쓰기</a>
 </main>
 <%@ include file="./_footer.jsp" %>
+
+
+
+
+
+
+
+
+
+
+
