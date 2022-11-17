@@ -16,7 +16,7 @@
 		///
 	}else{
 		// 회원이 아닐 경우
-		response.sendRedirect("/Farmstory1/user/login.jsp?success=100s");
+		response.sendRedirect("/Farmstory1/user/login.jsp?success=100");
 	}
 
 %>

@@ -3,10 +3,10 @@
 	String cate  = request.getParameter("cate");
 %>
 <div id="sub">
-    <div><img src="/Farmstory1/img/sub_top_tit5.png" alt="COMMUNITY"></div>
+    <div><img src="../img/sub_top_tit5.png" alt="COMMUNITY"></div>
     <section class="cate5">
         <aside>
-            <img src="/Farmstory1/img/sub_aside_cate5_tit.png" alt="커뮤니티"/>
+            <img src="../img/sub_aside_cate5_tit.png" alt="커뮤니티">
 
             <ul class="lnb">
                 <li class="<%= cate.equals("notice") ? "on" : "off" %>"><a href="./list.jsp?group=community&cate=notice">공지사항</a></li>
@@ -19,7 +19,7 @@
         </aside>
         <article>
             <nav>
-                <img src="/Farmstory1/img/sub_nav_tit_cate5_<%= cate %>.png" alt="공지사항"/>
+                <img src="../img/sub_nav_tit_cate5_<%= cate %>.png" alt="공지사항"/>
                 <p>
                     HOME > 커뮤니티 > 
                     <% if(cate.equals("notice")){ %>

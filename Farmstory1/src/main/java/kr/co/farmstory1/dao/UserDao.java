@@ -23,7 +23,33 @@ public class UserDao {
 	}
 	private UserDao() {}
 	
-	public void insertUser() {}
+	public void insertUser(UserBean ub) {
+		logger.info("insertUser start...");
+		try{
+			Connection conn = DBCP.getConnection();
+			
+			PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_USER);
+			psmt.setString(1, ub.getUid());
+			psmt.setString(2, ub.getPass());
+			psmt.setString(3, ub.getName());
+			psmt.setString(4, ub.getNick());
+			psmt.setString(5, ub.getEmail());
+			psmt.setString(6, ub.getHp());
+			psmt.setString(7, ub.getRegip());
+			psmt.setString(8, ub.getZip());
+			psmt.setString(9, ub.getAddr1());
+			psmt.setString(10, ub.getAddr2());
+			
+			psmt.executeUpdate();
+			
+			psmt.close();
+			conn.close();
+			
+			}catch(Exception e){
+				
+				logger.error(e.getMessage());
+			}
+	}
 	
 	public TermsBean selectTerms() {
 		
