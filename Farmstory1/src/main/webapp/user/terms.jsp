@@ -1,8 +1,8 @@
 
-<%@page import="kc.co.farmstory1.dao.TermsDao"%>
+<%@page import="kr.co.farmstory1.dao.TermsDao"%>
 <%@page import="java.util.List"%>
-<%@page import="kc.co.farmstory1.dao.UserDao"%>
-<%@page import="kc.co.farmstory1.bean.TermsBean"%>
+<%@page import="kr.co.farmstory1.dao.UserDao"%>
+<%@page import="kr.co.farmstory1.bean.TermsBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%

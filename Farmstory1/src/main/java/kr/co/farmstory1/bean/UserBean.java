@@ -1,4 +1,4 @@
-package kc.co.farmstory1.bean;
+package kr.co.farmstory1.bean;
 
 public class UserBean {
 	

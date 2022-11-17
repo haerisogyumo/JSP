@@ -1,5 +1,5 @@
-<%@page import="kc.co.farmstory1.dao.ArticleDao"%>
-<%@page import="kc.co.farmstory1.bean.ArticleBean"%>
+<%@page import="kr.co.farmstory1.dao.ArticleDao"%>
+<%@page import="kr.co.farmstory1.bean.ArticleBean"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/_header.jsp" %>

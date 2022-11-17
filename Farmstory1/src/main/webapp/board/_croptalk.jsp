@@ -1,31 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	String cate = request.getParameter("cate");
+	String cate  = request.getParameter("cate");
 %>
-        <div id="sub">
-            <div><img src="../img/sub_top_tit3.png" alt="CROPTALK"></div>
-            <section class="cate3">
-                <aside>
-                    <img src="../img/sub_aside_cate3_tit.png" alt="≥Û¿€π∞¿Ãæﬂ±‚"/>
+<div id="sub">
+    <div><img src="../img/sub_top_tit3.png" alt="CROP TALK"></div>
+    <section class="cate3">
+        <aside>
+            <img src="../img/sub_aside_cate3_tit.png" alt="ÎÜçÏûëÎ¨ºÏù¥ÏïºÍ∏∞"/>
 
-                    <ul class="lnb">
-                        <li class="<%= cate.equals("story") ? "on":"off" %>"><a href="./list.jsp?group=croptalk&cate=story">≥Û¿€π∞¿Ãæﬂ±‚</a></li>
-                        <li class="<%= cate.equals("grow") ? "on":"off" %>"><a href="./list.jsp?group=croptalk&cate=grow">≈‘πÁ∞°≤Ÿ±‚</a></li>
-                        <li class="<%= cate.equals("school") ? "on":"off" %>"><a href="./list.jsp?group=croptalk&cate=school">±Õ≥Û«–±≥</a></li>
-                    </ul>
-                </aside>
-              <article>
-                    <nav>
-                        <img src="../img/sub_nav_tit_cate3_<%=cate%>.png" alt="∞¯¡ˆªÁ«◊"/>
-                        <p>
-                            HOME > ≥Û¿€π∞¿Ãæﬂ±‚ > 
-                            <% if(cate.equals("story")){ %>
-                            <em>≥Û¿€π∞¿Ãæﬂ±‚</em>
-                            <% }else if(cate.equals("grow")){ %>
-                            <em>≈‘πÁ∞°≤Ÿ±‚</em>
-                            <% }else if(cate.equals("school")){ %>
-                            <em>±Õ≥Û«–±≥</em>
-							<% } %>
-                        </p>
-                    </nav>
+            <ul class="lnb">
+                <li class="<%= cate.equals("story") ? "on" : "off" %>"><a href="./list.jsp?group=croptalk&cate=story">ÎÜçÏûëÎ¨ºÏù¥ÏïºÍ∏∞</a></li>
+                <li class="<%= cate.equals("grow") ? "on" : "off" %>"><a href="./list.jsp?group=croptalk&cate=grow">ÌÖÉÎ∞≠Í∞ÄÍæ∏Í∏∞</a></li>
+                <li class="<%= cate.equals("school") ? "on" : "off" %>"><a href="./list.jsp?group=croptalk&cate=school">Í∑ÄÎÜçÌïôÍµê</a></li>
+            </ul>
+
+        </aside>
+        <article>
+            <nav>
+                <img src="../img/sub_nav_tit_cate3_<%= cate %>.png" alt="ÎÜçÏûëÎ¨ºÏù¥ÏïºÍ∏∞"/>
+                <p>
+                    HOME > ÎÜçÏûëÎ¨ºÏù¥ÏïºÍ∏∞ > 
+                    <% if(cate.equals("story")){ %>
+                    	<em>ÎÜçÏûëÎ¨ºÏù¥ÏïºÍ∏∞</em>
+                    <% }else if(cate.equals("grow")){ %>
+                    	<em>ÌÖÉÎ∞≠Í∞ÄÍæ∏Í∏∞</em>
+                    <% }else if(cate.equals("school")){ %>
+                    	<em>Í∑ÄÎÜçÌïôÍµê</em>
+                    <% } %>
+                </p>
+            </nav>

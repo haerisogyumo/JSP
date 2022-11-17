@@ -1,4 +1,4 @@
-package kc.co.farmstory1.dao;
+package kr.co.farmstory1.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import kc.co.farmstory1.db.DBCP;
-import kc.co.farmstory1.db.Sql;
+import kr.co.farmstory1.db.DBCP;
+import kr.co.farmstory1.db.Sql;
 
 public class TermsDao {
 	

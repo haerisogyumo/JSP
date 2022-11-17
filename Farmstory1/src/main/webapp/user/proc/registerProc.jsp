@@ -1,5 +1,5 @@
-<%@page import="kc.co.farmstory1.dao.UserDao"%>
-<%@page import="kc.co.farmstory1.bean.UserBean"%>
+<%@page import="kr.co.farmstory1.dao.UserDao"%>
+<%@page import="kr.co.farmstory1.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
