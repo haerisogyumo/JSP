@@ -41,7 +41,7 @@ public class RegisterController extends HttpServlet{
 		String zip = req.getParameter("zip");
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");
-		String rezip = req.getRemoteAddr();
+		String regip = req.getRemoteAddr();
 		
 		// VO 데이터 생성
 		UserVO vo = new UserVO();
@@ -54,7 +54,7 @@ public class RegisterController extends HttpServlet{
 		vo.setZip(zip);
 		vo.setAddr1(addr1);
 		vo.setAddr2(addr2);
-		vo.setRezip(zip);
+		vo.setRegip(zip);
 		
 		//데이터베이스처리
 		UserDAO.getInstance().insertUser(vo);

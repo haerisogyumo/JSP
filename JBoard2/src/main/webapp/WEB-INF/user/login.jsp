@@ -9,7 +9,7 @@
         </header>
         <main id="user">
             <section class="login">
-                <form action="../list.html">
+                <form action="/JBoard2/user/login.do" method="post">
                     <table border="0">
                         <tr>
                             <td><img src="../img/login_ico_id.png" alt="아이디"/></td>

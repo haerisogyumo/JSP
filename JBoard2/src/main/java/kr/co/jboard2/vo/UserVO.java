@@ -12,7 +12,7 @@ public class UserVO {
 	private String zip;
 	private String addr1;
 	private String addr2;
-	private String rezip;
+	private String regip;
 	private String rdate;
 	
 	
@@ -77,11 +77,11 @@ public class UserVO {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
-	public String getRezip() {
-		return rezip;
+	public String getRegip() {
+		return regip;
 	}
-	public void setRezip(String rezip) {
-		this.rezip = rezip;
+	public void setRegip(String regip) {
+		this.regip = regip;
 	}
 	public String getRdate() {
 		return rdate;
