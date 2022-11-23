@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.jboard2.dao.UserDAO;
 import kr.co.jboard2.vo.UserVO;
 
-@WebServlet("/register.do")
+@WebServlet("/user/register.do")
 public class RegisterController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	

@@ -16,12 +16,13 @@
 	// 폼 데이터 검증 결과 상태변수
 	let isUidOk   = false;
 	let isPassOk  = false;
+	let isPassMatch = false;
 	let isNameOk  = false;
 	let isNickOk  = false;
 	let isEmailOk = false;
 	let isHpOk    = false;
-	let isEmailAuthOK = false;
-	let isEmailAuthCodeOK = false;
+	let isEmailAuthOk = false;
+	let isEmailAuthCodeOk = false;
 	let receivedCode = 0;
 	
 	
@@ -97,6 +98,7 @@
 				
 			}else{
 				isPassOk = false;
+				isPassMatch = true;
 				$('.resultPass').css('color', 'red').text('비밀번호가 일치하지 않습니다.');
 			}			
 		});
@@ -307,7 +309,7 @@
 				return false;
 			}
 			//이메일 인증코드 검증
-			if(!isEmailAuthCodeOK){
+			if(!isEmailAuthCodeOk){
 				alert('이메일 인증을 수행 하십시오.');
 				return false;
 			}

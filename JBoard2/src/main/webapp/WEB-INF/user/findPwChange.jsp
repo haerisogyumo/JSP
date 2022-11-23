@@ -1,12 +1,38 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-    <title>비밀번호 변경</title>
-    <link rel="stylesheet" href="/JBoard2/css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>Board System v2.0</h3>
-        </header>
+<jsp:include page="../_header.jsp"/>
+<script src="/JBoard2/js/validation.js"></script>
+<script>
+	$('.btnNext').click(function(e)){
+		e.preventDefault();
+		console.log('here1 : '+pass1 );
+		console.log('here2 : '+pass2 );
+		
+		if(isPassMatch){
+			alert('비밀번호가 일치하지 않습니다.');
+			return;
+		}
+		console.log('here3');
+		if(isPassOk == false){
+			alert('영문 ,숫자, 특수문자 조합 최소 5자 이상이어야 합니다.');
+			return
+		}
+		console.log('here4);
+		//alert('성공');
+		$.ajax({
+			url: '/JBoard2/user/findPwChange.do',
+			method: 'post',
+			data: {"pass":pass2},
+			dataType: 'json',
+			success: function(data){
+				console.log('here5');
+			}
+			
+		});
+		
+	});
+});
+</script>
+
         <main id="user">
             <section class="find findPwChange">
                 <form action="#">
@@ -14,18 +40,18 @@
                         <caption>비밀번호 변경</caption>                        
                         <tr>
                             <td>아이디</td>
-                            <td>honggildong</td>
+                            <td>${uid}</td>
                         </tr>
                         <tr>
                             <td>새 비밀번호</td>
                             <td>
-                                <input type="email" name="pass1" placeholder="새 비밀번호 입력"/>
+                                <input type="password" name="pass1" placeholder="새 비밀번호 입력"/>
                             </td>
                         </tr>
                         <tr>
                             <td>새 비밀번호 확인</td>
                             <td>
-                                <input type="email" name="pass1" placeholder="새 비밀번호 입력"/>
+                                <input type="password" name="pass2" placeholder="새 비밀번호 입력"/>
                             </td>
                         </tr>
                     </table>                                        
@@ -37,14 +63,9 @@
                 </p>
 
                 <div>
-                    <a href="./login.html" class="btn btnCancel">취소</a>
-                    <a href="./login.html" class="btn btnNext">다음</a>
+                    <a href="/JBoard2/user/login.do" class="btn btnCancel">취소</a>
+                    <a href="/JBoard2/user/login.do" class="btn btnNext">다음</a>
                 </div>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright chhak.or.kr</p>
-        </footer>
-    </div>    
-</body>
-</html>
+       <jsp:include page="../_footer.jsp"/>

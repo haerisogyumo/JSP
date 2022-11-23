@@ -1,12 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-    <title>아이디 찾기 결과</title>
-    <link rel="stylesheet" href="/JBoard2/css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>Board System v2.0</h3>
-        </header>
+<jsp:include page="../_header.jsp"/>
         <main id="user">
             <section class="find findIdResult">
                 <form action="#">
@@ -14,19 +7,19 @@
                         <caption>아이디 찾기 결과</caption>
                         <tr>
                             <td>이름</td>
-                            <td>홍길동</td>
+                            <td>${sessUserForFindId.name}</td>
                         </tr>
                         <tr>
                             <td>아이디</td>
-                            <td>honggildong</td>
+                            <td>${sessUserForFindId.uid}</td>
                         </tr>
                         <tr>
                             <td>이메일</td>
-                            <td>honggildong@gmail.com</td>
+                            <td>${sessUserForFindId.email}</td>
                         </tr>
                         <tr>
                             <td>가입일</td>
-                            <td>2022-11-16 10:20</td>
+                            <td>$[sessUserForFindId.rdate]</td>
                         </tr>
                     </table>                                        
                 </form>
@@ -36,14 +29,9 @@
                 </p>
 
                 <div>
-                    <a href="./login.html" class="btn btnCancel">로그인</a>
-                    <a href="./register.html" class="btn btnNext">비밀번호 찾기</a>
+                    <a href="/JBoard2/user/login.do" class="btn btnCancel">로그인</a>
+                    <a href="/JBoard2/user/findPw.do" class="btn btnNext">비밀번호 찾기</a>
                 </div>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright chhak.or.kr</p>
-        </footer>
-    </div>    
-</body>
-</html>
+<jsp:include page="../_footer.jsp"/>

@@ -13,7 +13,7 @@
                     <caption>사이트 이용약관</caption>
                     <tr>
                         <td>
-                            <textarea name="terms">${requestScope.vo.terms}</textarea>
+                            <textarea name="terms">${vo.terms}</textarea>
                             <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
                         </td>
                     </tr>
@@ -30,15 +30,10 @@
                 </table>
                 
                 <div>
-                    <a href="./login.html" class="btn btnCancel">취소</a>
-                    <a href="./register.html" class="btn btnNext">다음</a>
+                    <a href="./login.do" class="btn btnCancel">취소</a>
+                    <a href="./register.do" class="btn btnNext">다음</a>
                 </div>
 
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright chhak.or.kr</p>
-        </footer>
-    </div>    
-</body>
-</html>
+         <jsp:include page="../_footer.jsp"/>
