@@ -1,12 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-    <title>로그인</title>
-    <link rel="stylesheet" href="/JBoard2/css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>Board System v2.0</h3>
-        </header>
+<jsp:include page="./_header.jsp"/>
         <main id="user">
             <section class="login">
                 <form action="/JBoard2/user/login.do" method="post">
@@ -21,7 +14,7 @@
                         </tr>
                     </table>
                     <input type="submit" value="로그인" class="btnLogin"/>
-                    <label><input type="checkbox" name="saveUid">아이디 기억하기</label>
+                    <label><input type="checkbox" name="auto">자동 로그인</label>
                 </form>
                 <div>
                     <h3>회원 로그인 안내</h3>
@@ -36,9 +29,4 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright chhak.or.kr</p>
-        </footer>
-    </div>    
-</body>
-</html>
+<jsp:include page="./_footer.jsp"/>    

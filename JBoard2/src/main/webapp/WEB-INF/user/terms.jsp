@@ -1,12 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-    <title>약관</title>
-    <link rel="stylesheet" href="/JBoard2/css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>Board System v1.0</h3>
-        </header>
+<jsp:include page="./_header.jsp"/>
         <main id="user">
             <section class="terms">
                 <table border="1">
@@ -36,4 +29,4 @@
 
             </section>
         </main>
-         <jsp:include page="../_footer.jsp"/>
+         <jsp:include page="./_footer.jsp"/>

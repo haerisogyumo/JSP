@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="../_header.jsp"/>
+<jsp:include page="./_header.jsp"/>
 <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/JBoard2/js/postcode.js"></script>
 <script src="/JBoard2/js/validation.js"></script>
@@ -86,4 +86,4 @@
 
             </section>
         </main>
-        <jsp:include page="../_footer.jsp"/>
+        <jsp:include page="./_footer.jsp"/>
