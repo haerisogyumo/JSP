@@ -303,7 +303,6 @@ public class UserDAO extends DBHelper {
 			psmt.setString(1, uid);
 			psmt.executeUpdate();
 			close();
-		
 		}catch(Exception e) {
 			logger.error(e.getMessage());
 	}
