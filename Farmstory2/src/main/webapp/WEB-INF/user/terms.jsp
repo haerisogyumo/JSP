@@ -1,20 +1,16 @@
 
-<%@page import="kr.co.farmstory1.dao.TermsDao"%>
+<%@page import="kr.co.Farmstory2.vo.TermsVO"%>
+<%@page import="kr.co.Farmstory2.dao.UserDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.co.farmstory1.dao.UserDao"%>
-<%@page import="kr.co.farmstory1.bean.TermsBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%
-	List<String> ts = TermsDao.getInstance().selectTerms();
-%>
-<%@ include file="../_header.jsp" %>
+<jsp:include page="/WEB-INF/_header.jsp"/>
             <main id="user" class="terms">
                 <table border="0">
                     <caption>사이트 이용약관</caption>
                     <tr>
                         <td>
-                            <textarea class="terms" readonly><%= ts.get(0) %></textarea>
+                            <textarea class="terms" readonly>${vo.terms}</textarea>
                             <label><input type="checkbox" class="terms">&nbsp;동의합니다</label>
                         </td>
                     </tr>
@@ -24,17 +20,17 @@
                     <caption>개인정보 취급방침</caption>
                     <tr>
                         <td>
-                            <textarea class="privacy"><%= ts.get(1) %></textarea>
+                            <textarea class="privacy">${vo.privacy}</textarea>
                             <label><input type="checkbox" class="privacy">&nbsp;동의합니다</label>
                         </td>
                     </tr>
                 </table>
                 
                 <p>
-                    <a href="./login.jsp" class="cancel">취소</a>
-                    <a href="./register.jsp" class="next">다음</a>
+                    <a href="/Farmstory2/user/login.do" class="cancel">취소</a>
+                    <a href="/Farmstory2/user/register.do" class="next">다음</a>
                 </p>
 
 
             </main>
-<%@ include file="../_footer.jsp" %>
+<%@ include file="/WEB-INF/_footer.jsp" %>

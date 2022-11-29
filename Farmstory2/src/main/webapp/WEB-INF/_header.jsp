@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <title>팜스토리</title>
     <link rel="stylesheet" href="/Farmstory2/css/style.css"/>
+    <link rel="stylesheet" href="/Farmstory2/css/UserStyle.css"/>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
 </head>
 <body>
     <div id="wrapper">
         <header>
-            <a href="../index.html" class="logo"><img src="../img/logo.png" alt="로고"/></a>
+            <a href="/Farmstory2/index.do" class="logo"><img src="/Farmstory2/img/logo.png" alt="로고"/></a>
             <p>
-                <a href="#">HOME |</a>
-                <a href="#">로그인 |</a>
-                <a href="#">회원가입 |</a>
-                <a href="#">고객센터</a>
+                <a href="/Farmstory2/index.do">HOME |</a>
+                <a href="/Farmstory2/user/login.do">로그인 |</a>
+                <a href="/Farmstory2/user/register.do">회원가입 |</a>
+                <a href="/Farmstory2/index.do">고객센터</a>
             </p>
             <img src="../img/head_txt_img.png" alt="3만원 이상 무료배송"/>
             

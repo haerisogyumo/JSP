@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="/_header.jsp"/>
+<jsp:include page="/WEB-INF/_header.jsp"/>
 
         <div id="sub">
             <div><img src="../img/sub_top_tit2.png" alt="MARKET"></div>
@@ -29,4 +29,4 @@
 
         </div>
         
-     <jsp:include page="/_footer.jsp"/>
+<%@ include file="/WEB-INF/_footer.jsp" %>
