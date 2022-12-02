@@ -45,7 +45,7 @@ public class DBHelper {
 				conn.close();
 			}
 			
-		}catch (Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

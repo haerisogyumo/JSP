@@ -1,48 +1,31 @@
 <%@page import="java.util.List"%>
-<%@page import="kr.co.farmstory1.bean.ArticleBean"%>
-<%@page import="kr.co.farmstory1.dao.ArticleDao"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/_header.jsp" %>
-<%
-	if(sessUser == null){
-		response.sendRedirect("/Farmstory1/user/login.jsp?success=101");
-		return;
-	}
-	request.setCharacterEncoding("UTF-8");
-	String group = request.getParameter("group");
-	String cate  = request.getParameter("cate");
-	String no = request.getParameter("no");
-	String pg = request.getParameter("pg");
-	// DAO 객체 가져오기
-	ArticleDao dao = ArticleDao.getInstance();
-	
-	// 글 조회수 카운트 +1
-	dao.updateArticleHit(no);
-	
-	// 글 가져오기
-	ArticleBean article = dao.selectArticle(no);
-	
-	// 댓글 가져오기
-	List<ArticleBean> comments = dao.selectComments(no);
-	
-	pageContext.include("./_"+group+".jsp");
-%>
+<jsp:include page="/WEB-INF/_header.jsp"/>
+<jsp:include page="./_${group}.jsp"/>
+
+
 <script>
-	$(document).ready(function(){
-		
-		// 삭제하기
+$(document).ready(function(){
+	
+		// 댓글 삭제하기
 		$(document).on('click', '.remove', function(e){
 			e.preventDefault();
 			
-			let tag = $(this);
+			let article = $(this).closest('article');
 			let result = confirm('정말 삭제 하시겠습니까?');
 			
 			if(result){
 				
 				let no = $(this).attr('data-no');
+				let parent = $(this).attr('data-parent');
+				
+				let jsonData = {
+							"no":no,
+							"parent":parent
+				};
 				
 				$.ajax({
-					url: './proc/commentDeleteProc.jsp?no='+no,
+					url: '/Farmstory2/board/commentDelete.do',
 					type: 'GET',
 					dataType: 'json',
 					success: function(data){
@@ -51,14 +34,15 @@
 							alert('댓글이 삭제 되었습니다.');
 							
 							// 화면삭제
-							tag.closest('article').hide();
+							article.hide();
+							
 						}
 					}
 				});
 			}
 		});
 		
-		// 수정하기
+		// 댓글  수정하기
 		$(document).on('click', '.modify', function(e){
 			e.preventDefault();
 			
@@ -84,7 +68,7 @@
 				};
 				
 				$.ajax({
-					url: './proc/commentModifyProc.jsp',
+					url: '/Farmstory2/board/commentModify.do',
 					type: 'POST',
 					data: jsonData,
 					dataType: 'json',
@@ -119,7 +103,7 @@
 			console.log(jsonData);
 			
 			$.ajax({
-				url : './proc/commentWriteProc.jsp',
+				url:'/Farmstory2/board/commentWrite.do',
 				method: 'POST',
 				data: jsonData,
 				dataType: 'json',
@@ -127,7 +111,7 @@
 					
 					console.log(data);
 					
-					let article = "<article>";
+					let article = "<article class='comment'>";
 						article += "<span class='nick'>"+data.nick+"</span>";
 						article += "<span class='date'>"+data.date+"</span>";
 						article += "<p class='content'>"+data.content+"</p>";
@@ -139,7 +123,7 @@
 					
 					$('.commentList > .empty').hide();
 					$('.commentList').append(article);
-					textarea.val('');
+					$('textarea[name=content]').val('');
 				}
 			});
 			
@@ -147,53 +131,60 @@
 		});
 	});
 </script>
-        <main id="board" class="view">
+        <main id="board">
+        <section class="view">
 		    <table>
 		        <caption>글보기</caption>
 		        <tr>
 		            <th>제목</th>
-		            <td><input type="text" name="title" value="<%= article.getTitle() %>" readonly/></td>
+		            <td><input type="text" name="title" value="${article.title}" readonly/></td>
 		        </tr>
-		        <% if(article.getFile() > 0){ %>
+		        <c:if test="${article.file > 0}">
 		        <tr>
-		            <th>파일</th>
-		            <td><a href="./proc/download.jsp?fno=<%= article.getFno() %>"><%= article.getOriName() %></a>&nbsp;<span><%= article.getDownload() %></span>회 다운로드</td>
+		            <th>첨부파일</th>
+		            <td>
+		            	<a href="./proc/download.jsp?fno=${article.fno}">${article.oriName}</a>
+		            	<span>${article.download}</span>회 다운로드
+		            </td>
 		        </tr>
-		        <% } %>
+		        </c:if>
 		        <tr>
 		            <th>내용</th>
-		            <td><textarea name="content" readonly><%= article.getContent() %></textarea></td>
+		            <td>
+		            	 <div>${article.content }</div>
+		            </td>
 		        </tr>
+		        
 		    </table>
 		    <div>
-		    	<% if(sessUser.getUid().equals(article.getUid())){ %>
-		        <a href="./proc/deleteProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= article.getNo() %>&pg=<%= pg %>" class="btn btnRemove">삭제</a>
-		        <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= article.getNo() %>&pg=<%= pg %>" class="btn btnModify">수정</a>
-		        <% } %>
-		        <a href="./list.jsp?group=<%= group %>&cate=<%= cate %>&pg=<%= pg %>" class="btn btnList">목록</a>
+		    	<c:if test="${sessUser.uid.equals(article.uid)}">
+			        <a href="/Farmstory2/board/delete.do?no=${article.no }&pg=${pg }&group=${group}&cate=${cate}" class="btn btnDelete">삭제</a>
+	                <a href="/Farmstory2/board/modify.do?no=${article.no }&pg=${pg }&group=${group}&cate=${cate}" class="btn btnModify">수정</a>
+                </c:if>
+		        <a href="/Farmstory2/board/list.do?pg=${pg}&group=${group}&cate=${cate}" class="btn btnList">목록</a>
 		    </div>
 		
 		    <!-- 댓글목록 -->
 		    <section class="commentList">
 		        <h3>댓글목록</h3>
-		        
-		        <% for(ArticleBean comment : comments){ %>
-		        <article>
-		            <span class="nick"><%= comment.getNick() %></span>
-		            <span class="date"><%= comment.getRdate() %></span>                    
-		            <p class="content"><%= comment.getContent() %></p>
-		            <% if(sessUser.getUid().equals(comment.getUid())){ %>
+			<c:forEach var="comment" items="${comments}">
+			<article class="comment">
+		        	<span class="nick">${comment.nick}</span>
+                    <span class="date">${comment.rdate}</span>
+                    <p class="comment">${comment.content}</p>
 		            <div>
-		                <a href="#" class="remove" data-no="<%= comment.getNo() %>">삭제</a>
-		                <a href="#" class="modify" data-no="<%= comment.getNo() %>">수정</a>
+		            <c:if test="${sessUser.uid.equals(article.uid)}">
+		                <a href="#" class="delete" data-no="${comment.no}" data-parent="${comment.parent}">삭제</a>
+                        <a href="#" class="modify" data-no="${comment.no}">수정</a>
 		            </div>
-		            <% } %>
+		            </c:if>
 		        </article>
-		        <% } %>
+		        </c:forEach>
 		            
-		        <% if(comments.size() == 0){ %>            
-		        <p class="empty">등록된 댓글이 없습니다.</p>
-		        <% } %>
+		        <c:if test="${comments.size()==0}">
+                <p class="empty">등록된 댓글이 없습니다.</p>
+                </c:if>
+		        </section>
 		        
 		    </section>
 		
@@ -201,9 +192,9 @@
 		    <section class="commentForm">
 		        <h3>댓글쓰기</h3>
 		        <form action="#" method="post">
-		        	<input type="hidden" name="pg" value="<%= pg %>">
-		        	<input type="hidden" name="parent" value="<%= no %>">
-		        	<input type="hidden" name="uid" value="<%= sessUser.getUid() %>">
+		        	<input type="hidden" name="pg" value="${pg }">
+	                	<input type="hidden" name="parent" value="${no }">
+	                	<input type="hidden" name="uid" value="${sessUser.uid }">
 		            <textarea name="content" placeholder="댓글내용 입력"></textarea>
 		            <div>
 		                <a href="#" class="btn btnCancel">취소</a>
@@ -216,4 +207,4 @@
     </section>
 </div>
 
-<%@ include file="../_footer.jsp" %>
+<jsp:include page="/WEB-INF/_footer.jsp"/>

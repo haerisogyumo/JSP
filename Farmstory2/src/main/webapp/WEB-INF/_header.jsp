@@ -22,10 +22,10 @@
             <img src="../img/head_txt_img.png" alt="3만원 이상 무료배송"/>
             
             <ul class="gnb">
-                <li><a href="#">팜스토리소개</a></li>
-                <li><a href="#"><img src="../img/head_menu_badge.png" alt="30%"/>장바구니</a></li>
-                <li><a href="#">농작물이야기</a></li>
-                <li><a href="#">이벤트</a></li>
-                <li><a href="#">커뮤니티</a></li>
+                <li><a href="/Farmstory2/board/list.do">팜스토리소개</a></li>
+                <li><a href="/Farmstory2/board/list.do"><img src="../img/head_menu_badge.png" alt="30%"/>장바구니</a></li>
+                <li><a href="/Farmstory2/board/list.do">농작물이야기</a></li>
+                <li><a href="/Farmstory2/board/list.do">이벤트</a></li>
+                <li><a href="/Farmstory2/board/list.do">커뮤니티</a></li>
             </ul>
         </header>

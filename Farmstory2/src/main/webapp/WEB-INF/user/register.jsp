@@ -86,4 +86,4 @@
         </div>
     </form>            
 </main>
-<%@ include file="/WEB-INF/_footer.jsp" %>
+<jsp:include page="/WEB-INF/_footer.jsp"/>

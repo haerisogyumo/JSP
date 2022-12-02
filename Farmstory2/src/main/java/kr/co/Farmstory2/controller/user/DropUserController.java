@@ -1,32 +1,48 @@
-package kr.co.Farmstory2.controller.board;
+package kr.co.Farmstory2.controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/view.do")
-public class ViewController extends HttpServlet{
+import com.google.gson.JsonObject;
+
+import kr.co.Farmstory2.dao.UserDAO;
+
+@WebServlet("/user/dropUser.do")
+public class DropUserController extends HttpServlet{
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	public void init() throws ServletException {
-
+		// TODO Auto-generated method stub
+		super.init();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/board/view.jsp");
-		dispatcher.forward(req, resp);	
+		String uid = req.getParameter("uid");
+		
+		int result = UserDAO.getInstance().dropUser(uid);
+		
+		// 출력
+		JsonObject json = new JsonObject();
+		json.addProperty("result", result);
+		PrintWriter out = resp.getWriter();
+		out.print(json.toString());
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	
+		
 	}
-
 }
