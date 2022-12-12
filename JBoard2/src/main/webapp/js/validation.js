@@ -189,16 +189,16 @@
 		console.log('here1 : ' + email);
 		
 		if(email == ''){
-			alert('이미엘을 입력 하세요.');
+			alert('이메일을 입력 하세요.');
 			return;
 		}
 		
-		if(isEmailAuthOK){
+		if(isEmailAuthOk){
 			console.log('here2');
 			return;
 		}
 		
-		isEmailAuthOK = true;
+		isEmailAuthOk = true;
 		
 		$('.resultEmail').text('인증코드 전송 중 입니다. 잠시만 기다리세요...');
 		console.log('here3');

@@ -39,7 +39,7 @@ public class FindPwController extends HttpServlet{
 		String uid = req.getParameter("uid");
 		String email = req.getParameter("email");
 	
-		int result = UserDAO.getInstance().selectUserForFindPw(uid, email);
+		String result = UserDAO.getInstance().selectUserForFindPw(uid, email);
 		
 		JsonObject json = new JsonObject();
 		json.addProperty("result", result);

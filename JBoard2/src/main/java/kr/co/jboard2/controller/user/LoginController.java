@@ -67,6 +67,5 @@ public class LoginController extends HttpServlet {
 			// 회원 아님
 			resp.sendRedirect("/JBoard2/user/login.do?success=100");			
 		}	
-	
 	}
 }

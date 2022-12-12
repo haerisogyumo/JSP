@@ -37,7 +37,7 @@ public class LogoutController extends HttpServlet {
 		resp.addCookie(cookie);
 		
 		// 데이터베이스 세션 로그아웃
-		UserDAO.getInstance().updateUserForSessionOut(uid);
+		UserDAO.getInstance().updateUserSessionOut(uid);
 		
 		resp.sendRedirect("/JBoard2/user/login.do?success=201");
 	}
