@@ -1,4 +1,4 @@
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.jboard1.db.DBCP"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.User5Bean"%>
 <%@page import="java.util.List"%>

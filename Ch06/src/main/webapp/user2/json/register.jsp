@@ -2,7 +2,7 @@
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.jboard1.db.JDBC"%>
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");

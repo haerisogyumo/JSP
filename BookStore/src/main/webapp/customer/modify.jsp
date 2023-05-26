@@ -1,6 +1,6 @@
 
 <%@page import="bean.CustomerBean"%>
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.jboard1.db.JDBC"%>
 <%@page import="bean.BookBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>

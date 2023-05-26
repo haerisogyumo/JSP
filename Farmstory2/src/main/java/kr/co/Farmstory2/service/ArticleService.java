@@ -81,7 +81,6 @@ public enum ArticleService {
 		}else{
 			lastPageNum = total / 10 + 1;
 		}
-		
 		return lastPageNum;
 	}
 	

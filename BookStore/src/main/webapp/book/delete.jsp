@@ -1,4 +1,4 @@
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.jboard1.db.JDBC"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>

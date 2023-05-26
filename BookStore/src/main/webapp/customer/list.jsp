@@ -1,5 +1,5 @@
-<%@page import="bean.CustomerBean"%>
 <%@page import="config.JDBC"%>
+<%@page import="bean.CustomerBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
